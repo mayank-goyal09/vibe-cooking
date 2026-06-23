@@ -18,14 +18,16 @@ class FoodImageGenerator:
         if not self.hf_token:
             raise ValueError("❌ Error: HF_TOKEN not found in .env file!")
 
-    def generate(self, prompt, output_path="output/dish.png"):
-        print("👨‍🍳 Chef is cooking (using SDXL on Hugging Face)...")
+    def generate(self, prompt, output_path="output/dish.png", width=1024, height=1024):
+        print(f"👨‍🍳 Chef is cooking (using SDXL on Hugging Face, {width}x{height})...")
         
         payload = {
             "inputs": prompt,
             "parameters": {
-                "negative_prompt": "blurry, distorted, low quality, text, watermark, messy plate",
-                "guidance_scale": 7.5
+                "negative_prompt": "blurry, distorted, low quality, text, watermark, messy plate, low resolution, deformed, bad lighting",
+                "guidance_scale": 7.5,
+                "width": int(width),
+                "height": int(height)
             }
         }
 
@@ -40,7 +42,7 @@ class FoodImageGenerator:
         elif response.status_code == 503:
             print("⏳ Model is warming up. Waiting 20 seconds...")
             time.sleep(20)
-            return self.generate(prompt, output_path)
+            return self.generate(prompt, output_path, width=width, height=height)
         else:
             print(f"❌ Error: {response.status_code} - {response.text}")
-            return None
+            raise Exception(f"API Error {response.status_code}: {response.text}")
