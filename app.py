@@ -25,7 +25,7 @@ if "current_light" not in st.session_state:
 # --- 2. Page Configuration & Setup ---
 st.set_page_config(
     page_title="GenAI Food Studio",
-    page_icon="📸",
+    page_icon="👨‍🍳",
     layout="wide",
     initial_sidebar_state="collapsed"
 )
