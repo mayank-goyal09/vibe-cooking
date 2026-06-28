@@ -44,11 +44,16 @@ st.markdown("""
     }
 
     /* Global styling */
-    html, body, [data-testid="stAppViewContainer"], [data-testid="stApp"] {
+    html, body {
         font-family: 'Plus Jakarta Sans', sans-serif;
         background-color: #070504 !important; /* Premium deep obsidian dark */
         color: #eae7e2 !important; /* Ivory text */
         overflow-x: hidden;
+        background-attachment: fixed;
+    }
+    
+    [data-testid="stAppViewContainer"], [data-testid="stApp"] {
+        background-color: transparent !important;
     }
     
     [data-testid="stHeader"] {
@@ -116,6 +121,41 @@ st.markdown("""
     div[data-baseweb="input"]:focus-within {
         border-color: #e59c2b !important;
         box-shadow: 0 0 10px rgba(229, 156, 43, 0.35) !important;
+    }
+
+    /* Chat/Prompt Input Box Overhaul */
+    div[data-testid="stTextInput"] {
+        background: rgba(18, 14, 11, 0.8) !important;
+        border: 2px solid rgba(212, 175, 55, 0.4) !important;
+        border-radius: 30px !important;
+        padding: 8px 22px !important;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 15px rgba(212, 175, 55, 0.1) !important;
+        transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+    }
+    div[data-testid="stTextInput"]:focus-within {
+        border-color: #e59c2b !important;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), 0 0 25px rgba(229, 156, 43, 0.35) !important;
+        transform: translateY(-2px);
+    }
+    div[data-testid="stTextInput"] div[data-baseweb="input"] {
+        background: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
+        padding: 0 !important;
+    }
+    div[data-testid="stTextInput"] input {
+        color: #eae7e2 !important;
+        font-family: 'Plus Jakarta Sans', sans-serif !important;
+        font-size: 1.15rem !important;
+        font-weight: 500 !important;
+        background: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
+        padding: 0 !important;
+    }
+    div[data-testid="stTextInput"] input::placeholder {
+        color: #7c766e !important;
+        font-style: italic;
     }
     
     /* Selectbox/Dropdown Styling */
@@ -345,7 +385,7 @@ with col2:
     # Set premium placeholder card
     result_container.markdown("""
         <div class="glass-card" style="text-align: center; padding: 75px 30px;">
-            <span style="font-size: 3.5rem; display: block; margin-bottom: 15px;">🎨</span>
+            <span style="font-size: 3.5rem; display: block; margin-bottom: 15px;">🍽️</span>
             <h3 style="color: #d4af37; margin-top: 5px; margin-bottom: 10px;">Canvas Ready to Plate</h3>
             <p style="color: #b5b1a9; font-size: 0.92rem; max-width: 320px; margin: 0 auto;">Specify a dish on the left console and hit generate to render the masterpiece.</p>
         </div>
