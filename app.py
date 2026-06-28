@@ -288,4 +288,4 @@ if generate_btn:
 
 # --- 6. Footer ---
 st.markdown("---", unsafe_allow_html=True)
-st.caption("DigitalChef AI Studio | Designed for premium food rendering | Powered by SDXL")
+st.caption("DigitalChef AI Studio | Designed for premium food rendering | Powered by FLUX.1")
