@@ -48,27 +48,51 @@ The diagram below outlines how the Streamlit interface, `FoodPromptEngine`, and 
 
 ```mermaid
 graph TD
-    A[👤 User Input: Dish Name & Options] -->|Aesthetic Selections| B(⚙️ Studio Console UI)
-    B -->|Style + Angle + Lighting| C[🧠 FoodPromptEngine]
+    %% Bun (Top)
+    A[🍞 Top Bun: User Input & Preferences] -->|Plating Configuration| B(🍞 Top Bun: Studio Console UI)
     
-    C -->|Dynamically Compile Prompt| D[📝 Synthesized Composition Prompt]
+    %% Veggies (Lettuce & Tomato)
+    B -->|Aesthetic Data| C[🥬 Lettuce: FoodPromptEngine Style Presets]
+    C -->|Dynamic Prompt Compilation| D[🍅 Tomato: Synthesized Composition Prompt]
     
-    D -->|Post Payload with HF Token| E{⚡ Hugging Face Inference API}
-    E -->|Success 200| F[📸 Raw Binary Image Response]
-    E -->|Warmup 533| G[⏳ Auto-retry Backoff Loop]
-    G -->|20s Sleep| E
+    %% Cheese
+    D -->|Authorization & Payload| E{🧀 Cheese: Hugging Face Token}
     
-    F -->|Convert & Save PNG| H[💾 Local /output Directory]
-    H -->|Append to State History| I[🍽️ Recent Masterpieces Grid]
-    H -->|Render Canvas & Metadata| J[🎨 Premium Obsidian & Saffron HUD]
+    %% Patty (Core Engine)
+    E -->|Inference Execution| F[🥩 Patty: FLUX.1-schnell Model Inference]
+    F -->|Success 200| H[🍟 Side: Save PNG Output]
+    F -->|Warmup 503| G[⏳ Cooking Heat: Auto-retry backoff]
+    G -->|20s Retry| E
     
-    J -->|Select Re-Cook| K[🔄 Restore Original Settings]
-    K -->|Sync State Variables| B
+    %% Bun (Bottom)
+    H -->|Render Plated Dish| J[🍔 Bottom Bun: Obsidian & Saffron Canvas HUD]
+    J -->|Re-Cook Settings| K[🔄 Re-Cook: Sync State Variables]
+    K -->|Loop back| B
 
-    style A fill:#120f0d,color:#d4af37,stroke:#d4af37
-    style E fill:#ffd21e,color:#000,stroke:#000
-    style H fill:#a31d1d,color:#fff,stroke:#fff
-    style J fill:#070504,color:#eae7e2,stroke:#d4af37
+    %% Styles mapped to Burger colors
+    %% Buns: tan (#d4a373)
+    style A fill:#d4a373,color:#fff,stroke:#a67c52,stroke-width:2px
+    style B fill:#d4a373,color:#fff,stroke:#a67c52,stroke-width:2px
+    
+    %% Lettuce: green (#4caf50)
+    style C fill:#4caf50,color:#fff,stroke:#388e3c,stroke-width:2px
+    
+    %% Tomato: red (#f44336)
+    style D fill:#f44336,color:#fff,stroke:#d32f2f,stroke-width:2px
+    
+    %% Cheese: yellow (#ffeb3b)
+    style E fill:#ffeb3b,color:#000,stroke:#fbc02d,stroke-width:2px
+    
+    %% Patty: brown (#795548)
+    style F fill:#795548,color:#fff,stroke:#5d4037,stroke-width:2px
+    style G fill:#795548,color:#fff,stroke:#5d4037,stroke-width:2px
+    
+    %% Fries/Side: orange (#ff9800)
+    style H fill:#ff9800,color:#fff,stroke:#f57c00,stroke-width:2px
+    
+    %% Bottom Bun: tan (#d4a373)
+    style J fill:#d4a373,color:#fff,stroke:#a67c52,stroke-width:2px
+    style K fill:#d4a373,color:#fff,stroke:#a67c52,stroke-width:2px
 ```
 
 ---
