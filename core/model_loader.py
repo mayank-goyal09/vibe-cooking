@@ -12,14 +12,18 @@ class FoodImageGenerator:
     def __init__(self):
         # Automatically pull the token from the .env file
         self.hf_token = os.getenv("HF_TOKEN")
-        self.url = "https://api-inference.huggingface.co/models/black-forest-labs/FLUX.1-schnell"
+        # We use the official Hugging Face Router endpoint.
+        # Paid/Partner models (like FLUX.1-schnell) consume partner credits.
+        # Free serverless models (like stabilityai/stable-diffusion-xl-base-1.0) do not deplete partner credits.
+        self.model_id = "black-forest-labs/FLUX.1-schnell" 
+        self.url = f"https://router.huggingface.co/hf-inference/models/{self.model_id}"
         self.headers = {"Authorization": f"Bearer {self.hf_token}"}
         
         if not self.hf_token:
             raise ValueError("❌ Error: HF_TOKEN not found in .env file!")
 
     def generate(self, prompt, output_path="output/dish.png", width=1024, height=1024):
-        print(f"👨‍🍳 Chef is cooking (using FLUX.1 on Hugging Face, {width}x{height})...")
+        print(f"👨‍🍳 Chef is cooking (using {self.model_id} on Hugging Face, {width}x{height})...")
         
         payload = {
             "inputs": prompt,
