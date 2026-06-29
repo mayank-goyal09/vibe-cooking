@@ -12,7 +12,7 @@ class FoodImageGenerator:
     def __init__(self):
         # Automatically pull the token from the .env file
         self.hf_token = os.getenv("HF_TOKEN")
-        self.url = "https://router.huggingface.co/hf-inference/models/black-forest-labs/FLUX.1-schnell"
+        self.url = "https://api-inference.huggingface.co/models/black-forest-labs/FLUX.1-schnell"
         self.headers = {"Authorization": f"Bearer {self.hf_token}"}
         
         if not self.hf_token:
