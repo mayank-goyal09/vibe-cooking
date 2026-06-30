@@ -7,7 +7,7 @@
 [![Typing SVG](https://readme-typing-svg.demolab.com?font=Playfair+Display&weight=700&size=30&duration=3000&pause=1000&color=D4AF37&center=true&vCenter=true&width=900&height=50&lines=Fine+Art+AI+Food+Photography;Prompt-to-Plating+Synthesis;FLUX.1-schnell+Culinary+Engine;Restaurant+3.1+Virtual+Kitchen)](https://git.io/typing-svg)
 
 ![Python](https://img.shields.io/badge/Python-3.9+-3776ab?style=for-the-badge&logo=python&logoColor=white)
-![Streamlit](https://img.shields.io/badge/Streamlit-Studio_UI-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)
+[![Streamlit](https://img.shields.io/badge/Streamlit-Live_Demo-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)](https://vibe-cooking-project.streamlit.app/)
 ![Hugging Face](https://img.shields.io/badge/Hugging_Face-API-FFD21E?style=for-the-badge&logo=huggingface&logoColor=black)
 ![FLUX.1](https://img.shields.io/badge/Image_Generator-FLUX.1_Schnell-E59C2B?style=for-the-badge&logo=stabilityai&logoColor=white)
 
@@ -15,6 +15,8 @@
 
 ### **Where Culinary Arts Meet Generative AI.**
 ### **Transform raw dish concepts into high-resolution, styled food photography in seconds. Designed for menus, social media, and digital branding.** 📸✨
+
+### **🌐 [Try the Live Streamlit App Here!](https://vibe-cooking-project.streamlit.app/)**
 
 </div>
 
@@ -194,6 +196,9 @@ streamlit run app.py
 ```
 Open your browser and navigate to:
 👉 **`http://localhost:8501`**
+
+Alternatively, you can access the live hosted version directly without any local installation:
+👉 **[vibe-cooking-project.streamlit.app](https://vibe-cooking-project.streamlit.app/)**
 
 ---
 
